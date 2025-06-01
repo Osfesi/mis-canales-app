@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canales Acestream</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Canales Acestream</h1>
+
+    <div class="form">
+      <input type="text" id="channelName" placeholder="Nombre del canal" />
+      <input type="text" id="channelUrl" placeholder="Enlace Acestream" />
+      <button onclick="addChannel()">Agregar canal</button>
+    </div>
+
+    <div class="actions">
+      <button onclick="exportChannels()">Exportar</button>
+      <input type="file" id="importFile" accept=".txt" onchange="importChannels()" />
+      <button onclick="loadFromGitHubPages()">Cargar desde GitHub Pages</button>
+    </div>
+
+    <div id="channelList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
