@@ -1,70 +1,378 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-  color: #333;
+/* Variables CSS para una gestión más fácil de colores y tamaños */
+:root {
+  /* Naranja McLaren (Papaya Orange) */
+  --primary-color: #FF7700; /* Un naranja vibrante, puedes ajustarlo un poco si prefieres */
+  --primary-color-dark: #CC5F00; /* Una versión más oscura para hover */
+  --secondary-color: #6c757d; /* Gris para botones secundarios (combina bien) */
+  --secondary-color-dark: #5a6268; /* Gris oscuro para hover */
+  --background-color: #f0f2f5; /* Gris claro de fondo (funciona bien con el naranja) */
+  --card-background: #ffffff; /* Blanco para tarjetas */
+  --text-color: #333333; /* Texto principal oscuro */
+  --light-text-color: #666666; /* Texto secundario/descripciones */
+  --error-color: #dc3545; /* Rojo para errores */
+  --border-color: #e0e0e0; /* Color de borde suave */
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s ease;
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  /* Centrar contenido verticalmente en pantallas muy altas (ej. TV) */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenedor principal verticalmente */
+  align-items: center; /* Centra el contenedor principal horizontalmente */
+  background: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-y: auto; /* Permite scroll si el contenido es demasiado alto */
+  padding: 1rem 0; /* Un poco de padding arriba y abajo para evitar pegarse al borde */
+}
+
+/* Contenedor principal de la aplicación */
 .container {
-  max-width: 600px;
-  margin: auto;
-  padding: 1rem;
+  width: 90%; /* Ocupa la mayor parte del ancho */
+  max-width: 600px; /* Pero no más de 600px */
+  margin: 0 auto; /* Asegura el centrado horizontal */
+  padding: 1.5rem;
+  box-sizing: border-box; /* Incluye padding en el ancho total */
 }
 
 h1 {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  color: var(--primary-color-dark); /* El título principal sigue el color primario */
+  margin-bottom: 2rem;
+  letter-spacing: -0.05em;
 }
 
-.form, .actions {
+/* Estilos de las "tarjetas" */
+.card {
+  background: var(--card-background);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 1.5rem;
+}
+
+.form-section {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
 }
 
-input[type="text"], input[type="file"] {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+.actions-section {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna por defecto para móvil */
+  gap: 1rem;
 }
 
-button {
-  padding: 0.75rem;
+@media (min-width: 480px) { /* Para tablets y desktops, 2 columnas */
+  .actions-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Inputs de texto */
+.text-input {
+  padding: 0.8rem 1rem;
   font-size: 1rem;
-  background: #007bff;
-  color: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  width: 100%; /* Asegura que ocupen todo el ancho disponible */
+  box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+.text-input:focus {
+  border-color: var(--primary-color); /* El borde se ilumina con el naranja */
+  box-shadow: 0 0 0 3px rgba(255, 119, 0, 0.25); /* Sombra de enfoque naranja (ajustada para el color) */
+  outline: none;
+}
+
+/* Botones genéricos */
+.button {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform 0.1s ease;
+  text-align: center;
+  text-decoration: none;
+  display: block; /* Hacemos que los botones sean bloques para ocupar el ancho completo en móvil */
+  width: 100%; /* Ocupan todo el ancho disponible dentro de su contenedor */
+  box-sizing: border-box;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.primary-button {
+  background: var(--primary-color);
+  color: white;
+}
+
+.primary-button:hover {
+  background: var(--primary-color-dark);
+}
+
+.secondary-button {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.secondary-button:hover {
+  background: var(--secondary-color-dark);
+}
+
+/* Estilos para el input de archivo (Importar) */
+.file-input-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: block; /* Cambiado a block */
+  width: 100%;
+}
+
+.file-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  font-size: 100px;
   cursor: pointer;
 }
 
-button:hover {
-  background: #0056b3;
+.file-input-wrapper .button {
+  width: 100%;
 }
 
-#channelList {
+/* Lista de Canales */
+.channel-list-section {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .channel {
-  background: white;
-  padding: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  background: var(--card-background);
+  padding: 1.2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: flex-start;
 }
 
 .channel-title {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  word-break: break-word;
+  width: 100%;
+  display: flex; /* Usamos flexbox para alinear el icono y el texto */
+  align-items: center; /* Centra verticalmente el icono con el texto si el texto estuviera visible */
+  gap: 0.5rem; /* Espacio entre el icono y el texto/nombre si el texto fuera visible */
 }
 
-.channel-buttons {
+/* Nuevos estilos para los iconos */
+.channel-icon-wrapper {
   display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem; /* Espacio entre el icono y el texto oculto, aunque invisible */
+}
+
+.channel-icon {
+  width: 28px; /* Tamaño del icono */
+  height: 28px;
+  vertical-align: middle; /* Alineación vertical */
+  margin-right: 0.2rem; /* Pequeño margen a la derecha del icono */
+  filter: invert(25%) sepia(80%) saturate(600%) hue-rotate(345deg) brightness(95%) contrast(100%); /* Filtro para darle el color naranja */
+  /* Puedes ajustar este filtro o quitarlo si tus iconos ya tienen el color deseado */
+}
+
+/* Clase para ocultar visualmente el texto pero mantenerlo accesible */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Si el título es solo texto (sin icono) */
+.channel-text {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+/* Estilos para la pantalla de contraseña */
+.password-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.password-box {
+  background: var(--card-background);
+  padding: 2.5rem 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  width: 90%; /* Ocupa el 90% del ancho de la pantalla */
+  max-width: 400px; /* Pero no más de 400px */
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-sizing: border-box;
+}
+
+.password-box h2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color-dark);
+  font-size: 1.8rem;
+}
+
+.app-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+.message-text {
+  color: var(--light-text-color);
+  font-size: 0.95rem;
+}
+
+.password-box input[type="password"] {
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  padding: 0.8rem 1rem;
+  font-size: 1.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: border-color var(--transition-speed);
+  box-sizing: border-box;
+}
+
+.password-box input[type="password"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 119, 0, 0.25);
+  outline: none;
+}
+
+.password-box button {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform 0.1s ease;
+}
+
+.password-box button:hover {
+  background: var(--primary-color-dark);
+}
+
+.password-box button:active {
+  transform: translateY(1px);
+}
+
+.error-message {
+  color: var(--error-color);
+  margin-top: 0.5rem;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Mensaje de no canales */
+.no-channels-message {
+  text-align: center;
+  color: var(--light-text-color);
+  margin-top: 2rem;
+  font-style: italic;
+  font-size: 1.1rem;
+  padding: 1rem;
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsividad general para pantallas más pequeñas */
+@media (max-width: 600px) {
+  .container {
+    margin: 0.5rem auto; /* Menos margen en pantallas pequeñas */
+    padding: 0.8rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .password-box {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .password-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .password-box input[type="password"],
+  .password-box button {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  .channel-buttons button {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+    min-width: unset; /* Permite que se encojan más en pantallas muy pequeñas */
+  }
+}
+
+/* Ajustes específicos para pantallas muy anchas (Fire Stick, TV) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 700px; /* Un poco más ancho en pantallas grandes para usar mejor el espacio */
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
 }

@@ -11,24 +11,35 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="CanalesAce">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  </head>
+</head>
 <body>
-  <div class="container">
+  <div id="passwordScreen" class="password-screen">
+    <div class="password-box">
+      <img src="icon-192.png" alt="Logo" class="app-logo"> <h2 id="passwordScreenTitle">Acceso a Canales Acestream</h2>
+      <p id="passwordScreenMessage" class="message-text"></p>
+      <input type="password" id="passwordInput" placeholder="Introduce la contraseña" autocomplete="current-password" />
+      <button id="passwordActionButton" onclick="checkPassword()">Acceder</button>
+      <p id="passwordError" class="error-message"></p>
+    </div>
+  </div>
+
+  <div id="appContent" class="container hidden">
     <h1>Canales Acestream</h1>
 
-    <div class="form">
-      <input type="text" id="channelName" placeholder="Nombre del canal" />
-      <input type="text" id="channelUrl" placeholder="Enlace Acestream" />
-      <button onclick="addChannel()">Agregar canal</button>
+    <div class="form-section card"> <input type="text" id="channelName" placeholder="Nombre del canal" class="text-input" />
+      <input type="text" id="channelUrl" placeholder="Enlace Acestream" class="text-input" />
+      <button onclick="addChannel()" class="button primary-button">Agregar canal</button>
     </div>
 
-    <div class="actions">
-      <button onclick="exportChannels()">Exportar</button>
-      <input type="file" id="importFile" accept=".txt" onchange="importChannels()" />
-      <button onclick="loadFromGitHubPages()">Cargar desde GitHub Pages</button>
+    <div class="actions-section card"> <button onclick="exportChannels()" class="button secondary-button">Exportar Canales</button>
+      <div class="file-input-wrapper">
+        <input type="file" id="importFile" accept=".txt" onchange="importChannels()" class="file-input" />
+        <label for="importFile" class="button secondary-button">Importar Canales</label>
+      </div>
+      <button onclick="loadFromGitHubPages()" class="button secondary-button">Cargar Canales de GitHub</button>
     </div>
 
-    <div id="channelList"></div>
+    <div id="channelList" class="channel-list-section"></div>
   </div>
 
   <script src="script.js"></script>
