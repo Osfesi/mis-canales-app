@@ -34,5 +34,17 @@
   {
     "name": "Eurosport 2 opc 2",
     "url": "acestream://4b87a5b67f39dfc151a163ec8c08039520f0a372"
+  },
+  {
+    "name": "DAZN opc1",
+    "url": "acestream://6538b79ce0da657d8455d1da6a5f342398899a0e"
+  },
+  {
+    "name": "DAZN opc 2",
+    "url": "acestream://50a8a13c474848d1efbd5586efdb5b6cdd173fa9"
+  },
+  {
+    "name": "DAZN opc 3",
+    "url": "acestream://4141892f5df7d6474bf0279895ce02b7336c9928"
   }
 ]
