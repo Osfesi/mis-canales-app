@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Formula 1 opc1",
+    "url": "acestream://6422e8bc34282871634c81947be093c04ad1bb29"
+  },
+  {
+    "name": "Formula 1 opc 2",
+    "url": "acestream://c9c18ae7a9dafba1caae5beb22060f9c92bba553"
+  },
+  {
+    "name": "Formula 1 opc 3",
+    "url": "acestream://515efd8115482bda8d92aa6df9a882a5e5797494"
+  },
+  {
+    "name": "Formula 1 opc 4",
+    "url": "acestream://d27584ebe5128c8033cb6fdc806a994fbd17b790"
+  },
+  {
+    "name": "Formula 1 opc 5",
+    "url": "acestream://d8068894248c1f21eea31e538917276a8c49ec06"
+  },
+  {
+    "name": "Eurosport 1",
+    "url": "acestream://bae98f69fbf867550b4f73b4eb176dae84d7f909"
+  },
+  {
+    "name": "Eurosport 1 opc 2",
+    "url": "acestream://714e14e6d6e27660fd25a75b57b0ac5580fe705d"
+  },
+  {
+    "name": "Eurosport 2",
+    "url": "acestream://dc4ccb9e72550bc72be9360aa7d77e337ad11ecc"
+  },
+  {
+    "name": "Eurosport 2 opc 2",
+    "url": "acestream://4b87a5b67f39dfc151a163ec8c08039520f0a372"
+  },
+  {
+    "name": "DAZN opc1",
+    "url": "acestream://6538b79ce0da657d8455d1da6a5f342398899a0e"
+  },
+  {
+    "name": "DAZN opc 2",
+    "url": "acestream://50a8a13c474848d1efbd5586efdb5b6cdd173fa9"
+  },
+  {
+    "name": "DAZN opc 3",
+    "url": "acestream://4141892f5df7d6474bf0279895ce02b7336c9928"
+  }
+]
