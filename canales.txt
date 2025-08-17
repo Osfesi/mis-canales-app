@@ -1,7 +1,4 @@
-[
-  {
-    "category": "Fórmula 1",
-    "streams": [
+	 [
       {
         "name": "Formula 1 opc1",
         "url": "acestream://6422e8bc34282871634c81947be093c04ad1bb29"
@@ -37,12 +34,7 @@
       {
         "name": "DAZN F1 FHD by New ERA",
         "url": "acestream://f74d30576c9f9165b073c3f1df64381c2dfd801c"
-      }
-    ]
-  },
-  {
-    "category": "Eurosport",
-    "streams": [
+      },
       {
         "name": "Eurosport 1",
         "url": "acestream://bae98f69fbf867550b4f73b4eb176dae84d7f909"
@@ -70,13 +62,8 @@
       {
         "name": "EUROSPORT 2 FHD by New ERA",
         "url": "acestream://ef0cc1d80245e969638d0754314243b6040d46c9"
-      }
-    ]
-  },
-  {
-    "category": "DAZN",
-    "streams": [
-      {
+      },
+       {
         "name": "DAZN opc1",
         "url": "acestream://6538b79ce0da657d8455d1da6a5f342398899a0e"
       },
@@ -159,12 +146,7 @@
       {
         "name": "DAZN 1 FHD por Adrian",
         "url": "acestream://6713d3a14ffec0e0db5cf118b857f0db878fbaf5"
-      }
-    ]
-  },
-  {
-    "category": "Movistar",
-    "streams": [
+      },
       {
         "name": "MOVISTAR LaLiga 1080P",
         "url": "acestream://94d34491106e00394835c8cb68aa94481339b53f"
@@ -228,12 +210,7 @@
       {
         "name": "MOVISTAR CLASICOS FHD by New ERA",
         "url": "acestream://8506f48b6d6bb8a0c342e6fe83f40d80de77a574"
-      }
-    ]
-  },
-  {
-    "category": "Liga de Campeones",
-    "streams": [
+      },
       {
         "name": "M+ LIGA DE CAMPEONES FHD (1) by New ERA",
         "url": "acestream://7fd55d3cfc6b8b9c3195b1c852c0a04145756247"
@@ -313,12 +290,7 @@
       {
         "name": "M+ LIGA DE CAMPEONES 17 SD by New ERA",
         "url": "acestream://139bbb0b3992f92fb0b0983f491ac6a209614530"
-      }
-    ]
-  },
-  {
-    "category": "Deportes Varios",
-    "streams": [
+      },
       {
         "name": "M+ Super Copa (SAT) by New ERA",
         "url": "acestream://2a64c4d965ab9f7d4f3862a28de6fdfc4ca5bc49"
@@ -398,12 +370,7 @@
       {
         "name": "MGPTV | Camara de a bordo 4 by New ERA",
         "url": "acestream://a8c4e323ac935276b270ed73ce6e50a5adba3905"
-      }
-    ]
-  },
-  {
-    "category": "Canales Nacionales (España)",
-    "streams": [
+      },
       {
         "name": "LA 1 FHD by New ERA",
         "url": "acestream://df6c0d5a3c9f95251c0a99d46e945c5cbe3d37b0"
@@ -431,12 +398,7 @@
       {
         "name": "LA SEXTA FHD by New ERA",
         "url": "acestream://3d7ba33bd2b6f43550c79c70d9fe3fe3c2a54d5b"
-      }
-    ]
-  },
-  {
-    "category": "Varios",
-    "streams": [
+      },
       {
         "name": "#VAMOS FHD (SAT) by New ERA",
         "url": "acestream://67ea7c1a0e406884dbbbe0f08100de3132ac2cfd"
@@ -474,5 +436,4 @@
         "url": "acestream://aec09c33074b0eecc817c6026f2b43db10829ae6"
       }
     ]
-  }
-]
+  
